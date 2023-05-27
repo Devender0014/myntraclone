@@ -9,7 +9,7 @@ require("dotenv").config();
 
 userRouter.get("/", async (req, res) => {
   let users= await UserModel.find();
-  res.send("users");
+  res.send(users);
 });
 
 
@@ -18,7 +18,7 @@ userRouter.get("/", async (req, res) => {
 userRouter.post("/signup", async (req, res) => {
   const {name,email,password} = req.body;
     try{
-       let existingUser = await Users.findOne({email})
+       let existingUser = await UserModel.findOne({email})
        console.log(existingUser)
        if(existingUser){
         res.send(`User with Email Id ${email} already exist`)
@@ -28,7 +28,7 @@ userRouter.post("/signup", async (req, res) => {
             if(err){
                 res.send(err)
             }else{
-                let createUser = new Users({ name : name ,email : email , password : secure_password, role : "Explorer"})
+                let createUser = new UserModel({ name : name ,email : email , password : secure_password, role : "Explorer"})
                 await createUser.save()
                 res.send("Signup Successfully")
                 // res.send(createUser)
