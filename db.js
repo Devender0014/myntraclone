@@ -1,6 +1,6 @@
 const mongoose= require("mongoose");
 require("dotenv").config();
 
-const connection = mongoose.connect("mongodb+srv://yadav0014dev:<password>@cluster0.kek4hfd.mongodb.net/?retryWrites=true&w=majority");
+const connection = mongoose.connect("mongodb+srv://yadav0014dev:yadav@cluster0.vtlpfqv.mongodb.net/myntraDatabase?retryWrites=true&w=majority");
 
 module.exports={connection};

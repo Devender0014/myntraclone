@@ -25,7 +25,7 @@ app.get("/", async(req, res) => {
     res.send("homepage routes are /users /mens /womens /cart /order");
 });
 
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 app.use("/user/order", orderRouter);
 app.use("/cart", cartRouter);
 app.use("/product", productRoute)
